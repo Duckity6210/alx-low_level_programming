@@ -3,7 +3,7 @@
 /**
  * print_alphabet - Make alphabet
  *
- * Return:void
+ * Return: void
  */
 
 void print_alphabet(void)
