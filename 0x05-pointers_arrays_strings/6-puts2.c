@@ -1,22 +1,20 @@
 #include "main.h"
 
 /**
- * puts2 - prints xters of a string
+ * puts2 - prints part of a string
  * @str: used string reference
  * Return: 0
  */
 
 void puts2(char *str)
 {
-	int z = 0;
+	int i = 0;
 
-	while (str[z] != '\0')
+	while (str[i] != '\0')
 	{
-		if (z % 2 == 0)
-		{
-\\			_putchar(str[z]);
-		}
-		z++;
+		if (i % 2 == 0)
+			_putchar(str[i]);
+		i++;
 	}
 	_putchar('\n');
 }
