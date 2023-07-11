@@ -1,13 +1,13 @@
 #include <stdlib.h>
-#include <stdio.h>
+#include "main.h"
 
 /**
- * wordnos - counts number of words in a given string
- * @s: pointer to the string
- * Return: number of words in string
+ * count_word - helper function to count the number of words in a string
+ * @s: string to evaluate
+ *
+ * Return: number of words
  */
-
-int wordnos(char *s)
+int count_word(char *s)
 {
 	int flag, c, w;
 
@@ -24,24 +24,24 @@ int wordnos(char *s)
 			w++;
 		}
 	}
+
 	return (w);
 }
 /**
- * **strtow - splits a string into two
+ * **strtow - splits a string into words
  * @str: string to split
- * Return: pointer to array of strings
- * NULL if error
+ *
+ * Return: pointer to an array of strings (Success)
+ * or NULL (Error)
  */
-
 char **strtow(char *str)
 {
 	char **matrix, *tmp;
-
 	int i, k = 0, len = 0, words, c = 0, start, end;
 
 	while (*(str + len))
 		len++;
-	words = wordnos(str);
+	words = count_word(str);
 	if (words == 0)
 		return (NULL);
 
@@ -55,7 +55,7 @@ char **strtow(char *str)
 		{
 			if (c)
 			{
-				end = 1;
+				end = i;
 				tmp = (char *) malloc(sizeof(char) * (c + 1));
 				if (tmp == NULL)
 					return (NULL);
@@ -70,6 +70,7 @@ char **strtow(char *str)
 		else if (c++ == 0)
 			start = i;
 	}
+
 	matrix[k] = NULL;
 
 	return (matrix);
