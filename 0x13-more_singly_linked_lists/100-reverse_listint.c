@@ -8,21 +8,21 @@
 
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *next, *prev;
+	listint_t *ahead, *behind;
 
 	if (head == NULL || *head == NULL)
 		return (NULL);
 
-	prev = NULL;
+	behind = NULL;
 
-	((*head)->next != NULL)
-
-	       next = (*head)->next;
-		(*head)->next = prev;
-		prev = *head;
+	while ((*head)->next != NULL)
+	{
+		ahead = (*head)->next;
+		(*head)->next = behind;
+		behind = *head;
 		*head = next;
 
-	(*head)->next = prev;
+	(*head)->next = ahead;
 
 	return (*head);
 }
